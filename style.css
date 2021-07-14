@@ -37,10 +37,12 @@ body {
   border-radius: 10px;
   display: grid;
   grid-template-columns: 50% 50%;
+  grid-template-areas: 'left-card right-card';
   overflow: hidden;
 }
 
 .left-card {
+  grid-area: left-card;
   padding: 60px;
 }
 .left-card .left-card-header {
@@ -52,7 +54,6 @@ body {
 }
 .left-card .left-card-count {
   display: flex;
-  width: 85%;
   justify-content: space-between;
   text-transform: uppercase;
 }
@@ -71,5 +72,43 @@ body {
   opacity: 0.8;
 }
 .right-card {
+  grid-area: right-card;
   background-color: hsl(277, 64%, 61%);
+}
+
+@media (max-width: 850px) {
+  body {
+    width: 90%;
+    text-align: center;
+  }
+  .card {
+    grid-template-areas: 
+                'right-card right-card'
+                'left-card left-card';
+  }
+  .left-card {
+    padding: 20px;
+  }
+  .left-card-count {
+    flex-direction: column;
+  }
+  .left-card-count h3 {
+    font-size: 25px;
+    padding: 15px 0;
+  }
+  .left-card-count p {
+    font-size: 16px;
+  }
+
+  .left-card .left-card-header {
+    margin: 10px 0;
+  }
+  .left-card .left-card-sub {
+    margin: 20px 0 30px;
+    line-height: 1.7em;
+    font-size: 18px;
+  }
+  .right-card img {
+    width: 90%;
+  }
 }
